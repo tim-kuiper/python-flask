@@ -20,8 +20,8 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        py_files=$(git ls-files '*.py')
-        if [ $py_files -ne 0 ]; then
+        git ls-files '*.py'
+        if [[ $? -ne 0 ]]; then
           echo "No Python files found, exiting"
           exit 0
         else
